@@ -1,0 +1,18 @@
+{
+	"invalidUser":{
+		"username":"invalidusername",
+		"password":"secret_sauce"
+	},
+
+	"validUser":{
+		"validEmail": "oolabisiogundairo@gmail.com",
+		"validPassword": "0Gund@iro"
+	},
+
+	"investment" : {
+		"amount" : "100000",
+		"vaultName" : "CICD test",
+		"smartName" : "Smart",
+		"flex" : "15000"
+	}
+}
