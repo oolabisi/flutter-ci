@@ -50,7 +50,8 @@ public class RenflexTest extends BaseTest {
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
         loginPage = new LoginPage();
-        investmentPage = loginPage.iSignIn( loginUsers.getJSONObject("validUser").getString("validEmail") ,loginUsers.getJSONObject("validUser").getString("validPassword"));
+        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+//        loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
 
     @AfterMethod

@@ -12,10 +12,10 @@
 		<parameter name="chromeDriverPort" value="11000" />
 		<classes>
 			<class name="com.qa.tests.LoginTests"/>
-<!--			<class name="com.qa.tests.DashboardPageTestPage"/>-->
-<!--			<class name="com.qa.tests.RenvaultTest"/>-->
-<!--			<class name="com.qa.tests.SmartGoalTest"/>-->
-<!--			<class name="com.qa.tests.RenflexTest"/>-->
+			<class name="com.qa.tests.DashboardPageTestPage"/>
+			<class name="com.qa.tests.RenvaultTest"/>
+			<class name="com.qa.tests.SmartGoalTest"/>
+			<class name="com.qa.tests.RenflexTest"/>
 		</classes>
 	</test>
 </suite> <!-- Suite -->

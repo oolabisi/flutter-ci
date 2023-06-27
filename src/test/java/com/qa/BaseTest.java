@@ -385,7 +385,7 @@ public class BaseTest {
 	public WebElement scrollToSmart() {
 		return getDriver().findElement(AppiumBy.androidUIAutomator(
 				"new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
-						+ "new UiSelector().description(\"End date\"));"));
+						+ "new UiSelector().description(\"Frequency\"));"));
 	}
   
   public void iOSScrollToElement() {

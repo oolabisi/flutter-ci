@@ -89,10 +89,10 @@ public class LoginPage extends BaseTest {
 		return new DashboardPage();
 	}
 
-	public DashboardPage signIn(String password, String email) {
-	enterEmail(email);
+	public DashboardPage signIn(String password) {
+	/*enterEmail(email);
 	escape();
-	nextBtn();
+	nextBtn();*/
 		validatePassword(password);
 		escape2();
 		return submit();
@@ -107,10 +107,10 @@ public class LoginPage extends BaseTest {
 		return new InvestmentPage();
 	}
 
-	public InvestmentPage iSignIn(String password, String email) {
-	enterEmail(email);
+	public InvestmentPage iSignIn(String password) {
+	/*enterEmail(email);
 	escape();
-	nextBtn();
+	nextBtn();*/
 		validatePassword(password);
 		escape2();
 		return iSubmit();

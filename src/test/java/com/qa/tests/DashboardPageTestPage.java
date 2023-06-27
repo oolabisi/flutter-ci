@@ -46,7 +46,8 @@ public class DashboardPageTestPage extends BaseTest {
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
         loginPage = new LoginPage();
-        dashboardPage = loginPage.signIn( loginUsers.getJSONObject("validUser").getString("validEmail"),loginUsers.getJSONObject("validUser").getString("validPassword"));
+        dashboardPage = loginPage.signIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+//        loginUsers.getJSONObject("validUser").getString("validEmail"),
     }
 
     @AfterMethod
