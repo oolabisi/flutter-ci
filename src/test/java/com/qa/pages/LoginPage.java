@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 
+
 public class LoginPage extends BaseTest {
 
 	@AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Error message\"]/android.widget.TextView")
@@ -30,7 +31,7 @@ public class LoginPage extends BaseTest {
 	public WebElement escape2;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@name=\"Enter email address\"]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`label == \"Enter email address\"`]")
 	public WebElement emailAddressField;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
@@ -42,7 +43,6 @@ public class LoginPage extends BaseTest {
 	public WebElement passwordField;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText/android.widget.Button")
-	//(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText/android.widget.Button")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Renmoney\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
 	public WebElement showPassword;
 
@@ -51,14 +51,16 @@ public class LoginPage extends BaseTest {
 	public WebElement submitBtn;
 
 	@AndroidFindBy(accessibility = "Log out")
-	@iOSXCUITFindBy
+	@iOSXCUITFindBy()
 	public WebElement logOutBtn;
 
 	@AndroidFindBy(accessibility = "More")
 	public WebElement moreIconPage;
 
 	public LoginPage enterEmail(String email) {
+		clear(emailAddressField);
 		click(emailAddressField);
+//		tapByCoordinates(194, 264);
 		sendKeys(emailAddressField, email, "enter " + email);
 		return this;
 	}
@@ -79,6 +81,7 @@ public class LoginPage extends BaseTest {
 	}
 
 	public LoginPage validatePassword(String password) {
+		clear(passwordField);
 		click(passwordField);
 		sendKeys(passwordField, password, "enter " + password);
 		return this;
@@ -114,6 +117,48 @@ public class LoginPage extends BaseTest {
 		validatePassword(password);
 		escape2();
 		return iSubmit();
+	}
+
+	public TransactionPage tSubmit() {
+		click(submitBtn, "submit button");
+		return new TransactionPage();
+	}
+
+	public TransactionPage tSignIn(String password) {
+	/*enterEmail(email);
+	escape();
+	nextBtn();*/
+		validatePassword(password);
+		escape2();
+		return tSubmit();
+	}
+
+	public AirtimeDataPage aSubmit() {
+		click(submitBtn, "submit button");
+		return new AirtimeDataPage();
+	}
+
+	public AirtimeDataPage aSignIn(String email, String password) {
+	enterEmail(email);
+	escape();
+	nextBtn();
+		validatePassword(password);
+		escape2();
+		return aSubmit();
+	}
+
+	public LoanPage lSubmit() {
+		click(submitBtn, "submit button");
+		return new LoanPage();
+	}
+
+	public LoanPage lSignIn(String password) {
+	/*enterEmail(email);
+	escape();
+	nextBtn();*/
+		validatePassword(password);
+		escape2();
+		return lSubmit();
 	}
 
 }

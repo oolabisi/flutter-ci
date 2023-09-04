@@ -11,11 +11,106 @@
 		<parameter name="systemPort" value="10000" />
 		<parameter name="chromeDriverPort" value="11000" />
 		<classes>
-			<class name="com.qa.tests.LoginTests"/>
-			<class name="com.qa.tests.DashboardPageTestPage"/>
-			<class name="com.qa.tests.RenvaultTest"/>
-			<class name="com.qa.tests.SmartGoalTest"/>
-			<class name="com.qa.tests.RenflexTest"/>
+			<!-- LOGIN MODULE -->
+			<class name="com.qa.tests.LoginTests">
+				<methods>
+<!--					<include name="navigateToSignIn"/>-->
+<!--					<include name="unregisteredEmail"/>-->
+					                    <include name="validEmail"/>
+<!--					                    <include name="invalidPassword"/>-->
+					                    <include name="showPassword"/>
+					                    <include name="validPassword"/>
+					                    <include name="modalPopUp"/>
+					                    <include name="signOut"/>
+				</methods>
+			</class>
+
+			<!-- DASHBOARD MODULE -->
+			<class name="com.qa.tests.DashboardPageTestPage">
+				<methods>
+				<include name="dashboard"/>
+				<include name="modalPopUp"/>
+				<include name="historyTab"/>
+				<include name="notification"/>
+				<include name="hideAndShowTransaction"/>
+				<include name="addMoneyTab"/>
+				<include name="sendMoneyTab"/>
+				</methods>
+			</class>
+
+			<!-- RENVAULT MODULE -->
+			<class name="com.qa.tests.RenvaultTest">
+				<methods>
+					<include name="Renvault"/>
+					<include name="investmentOption"/>
+					<include name="renvaultButton"/>
+					<include name="renvaultAmount"/>
+					<include name="renvaultDuration"/>
+					<include name="checkBox"/>
+					<include name="planName"/>
+				</methods>
+			</class>
+
+			<!-- SMART-GOAL MODULE -->
+			<class name="com.qa.tests.SmartGoalTest">
+				<methods>
+					<include name="SmartGoal"/>
+					<include name="planOption"/>
+					<include name="smartGoalPlan"/>
+					<include name="smartAmount"/>
+					<include name="duration"/>
+					<include name="tenure"/>
+					<include name="checkBox"/>
+					<include name="planName"/>
+				</methods>
+			</class>
+
+			<!-- RENFLEX MODULE -->
+			<class name="com.qa.tests.RenflexTest">
+				<methods>
+					<include name="Renflex"/>
+					<include name="planOption"/>
+					<include name="flexAmount"/>
+				</methods>
+			</class>
+
+			<!-- AIRTIME MODULE -->
+			<class name="com.qa.tests.AirtimeTest">
+				<methods>
+					<include name="BuyAirtime"/>
+					<include name="airtimeTab"/>
+					<include name="networkProvider"/>
+					<include name="phoneNumber"/>
+					<include name="amount"/>
+					<include name="otherAmountOptions"/>
+				</methods>
+			</class>
+
+			<!-- DATA MODULE -->
+			<class name="com.qa.tests.DataTest">
+				<methods>
+					<include name=""/>
+				</methods>
+			</class>
+
+			<!-- LOAN MODULE -->
+			<class name="com.qa.tests.LoanTest">
+				<methods>
+					<include name="InstaLoan"/>
+					<include name="applyToInstaLoan"/>
+					<include name="loanCheckBox"/>
+					<include name="phoneChecks"/>
+					<include name="LoanAmount"/>
+					<include name="LoanPurpose"/>
+					<include name="submit"/>
+					<include name="mono"/>
+					<include name="bankName"/>
+					<include name="mobileBanking"/>
+					<include name="enterAccount"/>
+					<include name="enterPin"/>
+					<include name="mobileLogin"/>
+				</methods>
+			</class>
 		</classes>
 	</test>
 </suite> <!-- Suite -->

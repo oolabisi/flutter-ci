@@ -14,5 +14,24 @@
 		"vaultName" : "CICD test",
 		"smartName" : "Smart",
 		"flex" : "15000"
+	},
+
+	"airtimeData" : {
+		"phoneNumber" : "08022514503",
+		"amount" : "20000",
+		"transactionPin" : "1234",
+		"dataPhoneNumber" : "09037722595"
+	},
+
+	"transfer" : {
+		"bank" : "GTBank",
+		"account" : "0112174995",
+		"ren_account" : "3588913660",
+		"amount" : "1000",
+		"narration" : "Urgent 2k",
+		"pin" : "1234",
+		"beneficiary" : "ogun",
+		"amountExceeding" : "100000000000000000",
+		"wrongPin" : "3322"
 	}
 }

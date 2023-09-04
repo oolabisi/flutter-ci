@@ -62,21 +62,39 @@ public class RenvaultTest extends BaseTest {
         investmentPage.popUP();
         Thread.sleep(2000);
         investmentPage.saveIconBtn();
+    }
+    @Test
+    public void investmentOption() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.newPlan();
-        Thread.sleep(2000);
-        investmentPage.renvault();
-        Thread.sleep(2000);
-        investmentPage.amount(loginUsers.getJSONObject("investment").getString("amount"));
-        Thread.sleep(2000);
-        investmentPage.investmentDurationR();
-        investmentPage.chosenDuration();
-        investmentPage.hideKeyboard();
-        Thread.sleep(2000);
-        investmentPage.scrollDown();
-        investmentPage.scrollR();
-        investmentPage.checkBox();
-        investmentPage.next();
+        }
+        @Test
+        public void renvaultButton() throws InterruptedException {
+            Thread.sleep(2000);
+            investmentPage.renvault();
+        }
+        @Test
+        public void renvaultAmount() throws InterruptedException {
+            Thread.sleep(2000);
+            investmentPage.amount(loginUsers.getJSONObject("investment").getString("amount"));
+        }
+        @Test
+        public void renvaultDuration() throws InterruptedException {
+            Thread.sleep(2000);
+            investmentPage.investmentDurationR();
+            investmentPage.chosenDuration();
+            investmentPage.hideKeyboard();
+        }
+        @Test
+        public void checkBox() throws InterruptedException {
+            Thread.sleep(2000);
+            investmentPage.scrollDown();
+            investmentPage.scrollR();
+            investmentPage.checkBox();
+            investmentPage.next();
+        }
+        @Test
+        public void planName() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.planName(loginUsers.getJSONObject("investment").getString("vaultName"));
         investmentPage.hideKeyboard2();

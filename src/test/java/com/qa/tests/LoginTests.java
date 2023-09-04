@@ -66,9 +66,15 @@ public class LoginTests extends BaseTest{
 	  }*/
 
 
+	@Test
+	public void unregisteredEmail() throws InterruptedException {
+		loginPage.enterEmail(loginUsers.getJSONObject("invalidUser").getString("username"));
+		Thread.sleep(3000);
+		loginPage.escape();
+	}
 
 	  @Test
-	  public void signIn() throws InterruptedException {
+	  public void validEmail() throws InterruptedException {
 		  loginPage.enterEmail(loginUsers.getJSONObject("validUser").getString("validEmail"));
 		  Thread.sleep(3000);
 		  loginPage.escape();
@@ -79,5 +85,19 @@ public class LoginTests extends BaseTest{
 		  dashboardPage = loginPage.submit();
 		  Thread.sleep(7000);
 
+	}
+
+	@Test
+	public void invalidPassword() throws InterruptedException {
+		loginPage.validatePassword(loginUsers.getJSONObject("invalidUser").getString("validPassword"));
+		Thread.sleep(3000);
+		loginPage.escape2();
+	}
+
+	@Test
+	public void validPassword() throws InterruptedException {
+		loginPage.validatePassword(loginUsers.getJSONObject("validUser").getString("validPassword"));
+		Thread.sleep(3000);
+		loginPage.escape2();
 	}
 }

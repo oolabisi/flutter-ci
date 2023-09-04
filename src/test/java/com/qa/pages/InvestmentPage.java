@@ -123,7 +123,7 @@ public InvestmentPage smartGoal() {
     return new InvestmentPage();
 }
 
-public InvestmentPage  popUP() {
+public InvestmentPage popUP() {
     click(BigPop, "Ad");
     return new InvestmentPage();
 }

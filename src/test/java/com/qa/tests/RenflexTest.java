@@ -58,14 +58,22 @@ public class RenflexTest extends BaseTest {
     public void afterMethod() {}
 
     @Test
-    public void Renflex() throws InterruptedException {
+    public void Renflex() throws InterruptedException{
         investmentPage.popUP();
         Thread.sleep(3000);
         investmentPage.saveIconBtn();
+    }
+
+    @Test
+    public void planOption() throws InterruptedException{
         Thread.sleep(3000);
         investmentPage.newPlan();
         Thread.sleep(1000);
         investmentPage.renflex();
+    }
+
+    @Test
+    public void flexAmount(){
         investmentPage.amount(loginUsers.getJSONObject("investment").getString("flex"));
         investmentPage.hideKeyboard3();
 //        investmentPage.renFlexNext();

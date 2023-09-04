@@ -28,12 +28,10 @@ public class SmartGoalTest extends BaseTest {
             datais = getClass().getClassLoader().getResourceAsStream(dataFileName);
             JSONTokener tokener = new JSONTokener(datais);
             loginUsers = new JSONObject(tokener);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw e;
-        }
-        finally {
+        } finally {
             if (datais != null) {
                 datais.close();
             }
@@ -55,32 +53,61 @@ public class SmartGoalTest extends BaseTest {
     }
 
     @AfterMethod
-    public void afterMethod() {}
+    public void afterMethod() {
+    }
 
     @Test
     public void SmartGoal() throws InterruptedException {
         investmentPage.popUP();
         Thread.sleep(3000);
         investmentPage.saveIconBtn();
+    }
+
+    @Test
+    public void planOption() throws InterruptedException {
         Thread.sleep(3000);
         investmentPage.newPlan();
+    }
+
+    @Test
+    public void smartGoalPlan() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.smartGoal();
+    }
+
+    @Test
+    public void smartAmount() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.amount(loginUsers.getJSONObject("investment").getString("amount"));
+    }
+
+    @Test
+    public void duration() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.investmentDuration();
         Thread.sleep(2000);
         investmentPage.chosenTenure();
+    }
+
+    @Test
+    public void tenure() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.smartTenure();
         Thread.sleep(2000);
         investmentPage.smartChose();
         investmentPage.hideKeyboard4();
         investmentPage.scrolLdown();
+    }
+
+    @Test
+    public void checkBox() {
         investmentPage.scrollS();
         investmentPage.checkBox();
         investmentPage.next();
+    }
+
+    @Test
+    public void planName() {
         investmentPage.planName(loginUsers.getJSONObject("investment").getString("smartName"));
         investmentPage.hideKeyboard2();
         investmentPage.confirmBtn();

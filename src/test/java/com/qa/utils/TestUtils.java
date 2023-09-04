@@ -1,13 +1,11 @@
 package com.qa.utils;
 
-import com.google.common.collect.ImmutableMap;
 import com.qa.BaseTest;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.PerformsTouchActions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,9 +22,18 @@ import java.util.HashMap;
 
 
 public class TestUtils {
-	public static final long WAIT = 30;
-	private static PerformsTouchActions driver;
-//	private static AppiumBy driver;
+	public static final long WAIT = 60;
+
+	/*public static void tap() {
+		WebElement element = driver.findElement(AppiumBy.accessibilityId("Enter email address"));
+		Map<String, Object> params = new HashMap<>();
+		params.put("elementId", ((RemoteWebElement) element).getId());
+//		params.put("x",0);
+//		params.put("y", 0);
+		driver.executeScript("mobile: tap", params);
+	}*/
+
+
 
 	public HashMap<String, String> parseStringXML(InputStream file) throws Exception{
 		HashMap<String, String> stringMap = new HashMap<String, String>();

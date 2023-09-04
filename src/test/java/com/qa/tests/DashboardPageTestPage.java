@@ -102,4 +102,13 @@ public class DashboardPageTestPage extends BaseTest {
         dashboardPage.homeIconBtn();
     }
 
+    @Test
+    public void modalPopUp() throws InterruptedException {}
+    @Test
+    public void historyTab() throws InterruptedException {}
+    @Test
+    public void notification() throws InterruptedException {}
+    @Test
+    public void hideAndShowTransaction() throws InterruptedException {}
+
 }
