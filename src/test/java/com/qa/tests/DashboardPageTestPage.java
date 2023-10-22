@@ -36,6 +36,11 @@ public class DashboardPageTestPage extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+//        dashboardPage = loginPage.signIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+        dashboardPage = loginPage.signIn(loginUsers.getJSONObject("validUser").getString("validEmail"), loginUsers.getJSONObject("validUser").getString("validPassword"));
+
     }
 
     @AfterClass
@@ -45,9 +50,6 @@ public class DashboardPageTestPage extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        dashboardPage = loginPage.signIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-//        loginUsers.getJSONObject("validUser").getString("validEmail"),
     }
 
     @AfterMethod
@@ -60,54 +62,92 @@ public class DashboardPageTestPage extends BaseTest {
     public void Dashboard() throws InterruptedException {
         dashboardPage.popUP();
         Thread.sleep(3000);
+       /* Thread.sleep(3000);
+        dashboardPage.moreIconBtn();
+        Thread.sleep(3000);
+        dashboardPage.homeIconBtn();*/
+    }
+
+    @Test
+    public void modalPopUp() throws InterruptedException {
+        dashboardPage.modalPopUp();
+        Thread.sleep(4000);
+    }
+    @Test
+    public void historyTab() throws InterruptedException {
         dashboardPage.historyBtn();
         Thread.sleep(3000);
         dashboardPage.backButton();
+    }
+    @Test
+    public void notification() throws InterruptedException {
         Thread.sleep(3000);
-        dashboardPage.chatRenmoney();
+        dashboardPage =dashboardPage.chatRenmoney();
         Thread.sleep(3000);
-        dashboardPage.navigateUp();
+        dashboardPage =dashboardPage.navigateUp();
+    }
+    @Test
+    public void addMoney() throws InterruptedException {
         Thread.sleep(3000);
         dashboardPage.addMoneyBtn();
         Thread.sleep(3000);
         dashboardPage.backButton();
+    }
+
+    @Test
+    public void sendMoney() throws InterruptedException {
         Thread.sleep(3000);
         dashboardPage.sendMoneyBtn();
         Thread.sleep(3000);
         dashboardPage.backButton();
+    }
+
+    @Test
+    public void buyAirtime() throws InterruptedException {
         Thread.sleep(3000);
         dashboardPage.buyAirtimeBtn();
-        Thread.sleep(3000);
-        dashboardPage.homeIconBtn();
-        dashboardPage.investAndEarnBtn();
-        Thread.sleep(3000);
-        dashboardPage.homeIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.loanIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.homeIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.purchaseAirtimeBtn();
-        Thread.sleep(3000);
-        dashboardPage.homeIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.saveIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.homeIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.payIconBtn();
-        Thread.sleep(3000);
-        dashboardPage.moreIconBtn();
         Thread.sleep(3000);
         dashboardPage.homeIconBtn();
     }
 
     @Test
-    public void modalPopUp() throws InterruptedException {}
+    public void investAndEarn() throws InterruptedException {
+        Thread.sleep(3000);
+        dashboardPage.investAndEarnBtn();
+        Thread.sleep(3000);
+        dashboardPage.homeIconBtn();
+    }
+
     @Test
-    public void historyTab() throws InterruptedException {}
+    public void loanIcon() throws InterruptedException {
+        Thread.sleep(3000);
+        dashboardPage.loanIconBtn();
+        Thread.sleep(3000);
+        dashboardPage.homeIconBtn();
+    }
+
     @Test
-    public void notification() throws InterruptedException {}
+    public void purchaseAirtime() throws InterruptedException {
+        Thread.sleep(3000);
+        dashboardPage.purchaseAirtimeBtn();
+        Thread.sleep(3000);
+        dashboardPage.homeIconBtn();
+    }
+
+    @Test
+    public void saveIcon() throws InterruptedException {
+        Thread.sleep(3000);
+        dashboardPage.saveIconBtn();
+        Thread.sleep(3000);
+        dashboardPage.homeIconBtn();
+    }
+
+    @Test
+    public void moreIcon() throws InterruptedException {
+        Thread.sleep(3000);
+        dashboardPage.payIconBtn();
+    }
+
     @Test
     public void hideAndShowTransaction() throws InterruptedException {}
 

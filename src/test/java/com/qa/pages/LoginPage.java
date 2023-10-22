@@ -31,7 +31,7 @@ public class LoginPage extends BaseTest {
 	public WebElement escape2;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`label == \"Enter email address\"`]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@name=\"Enter email address\"]")
 	public WebElement emailAddressField;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
@@ -46,9 +46,13 @@ public class LoginPage extends BaseTest {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Renmoney\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
 	public WebElement showPassword;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View")
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[6]/android.view.View")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Renmoney\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]")
 	public WebElement submitBtn;
+
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[3]")
+	@iOSXCUITFindBy(accessibility = "")
+	public WebElement modalPopUp;
 
 	@AndroidFindBy(accessibility = "Log out")
 	@iOSXCUITFindBy()
@@ -58,10 +62,25 @@ public class LoginPage extends BaseTest {
 	public WebElement moreIconPage;
 
 	public LoginPage enterEmail(String email) {
-		clear(emailAddressField);
-		click(emailAddressField);
+		switch(getPlatform()) {
+			case "Android" :
+				clear(emailAddressField);
+				click(emailAddressField);
+				sendKeys(emailAddressField, email, "enter " + email);
+				break;
+			case "iOS" :
+				tapByCoordinates(142, 217);
+				clear(emailAddressField);
+				click(emailAddressField);
+				sendKeys(emailAddressField, email, "enter " + email);
+		}
+//	clear(emailAddressField);
+//		click(emailAddressField);
+//		sendKeys(emailAddressField, email, "enter " + email);
+//		clear(emailAddressField);
+//		click(emailAddressField);
 //		tapByCoordinates(194, 264);
-		sendKeys(emailAddressField, email, "enter " + email);
+//		sendKeys(emailAddressField, email, "enter " + email);
 		return this;
 	}
 
@@ -92,13 +111,18 @@ public class LoginPage extends BaseTest {
 		return new DashboardPage();
 	}
 
-	public DashboardPage signIn(String password) {
-	/*enterEmail(email);
+	public DashboardPage signIn(String email, String password) {
+	enterEmail(email);
 	escape();
-	nextBtn();*/
-		validatePassword(password);
-		escape2();
-		return submit();
+	nextBtn();
+	validatePassword(password);
+	escape2();
+	return submit();
+	}
+
+	public DashboardPage modalPopUp() {
+		click(modalPopUp, "close modal");
+		return new DashboardPage();
 	}
 
 //  Login instance to other modules
@@ -138,13 +162,13 @@ public class LoginPage extends BaseTest {
 		return new AirtimeDataPage();
 	}
 
-	public AirtimeDataPage aSignIn(String email, String password) {
-	enterEmail(email);
+	public AirtimeDataPage aSignIn(String password) {
+	/*enterEmail(email);
 	escape();
-	nextBtn();
-		validatePassword(password);
-		escape2();
-		return aSubmit();
+	nextBtn();*/
+	validatePassword(password);
+	escape2();
+	return aSubmit();
 	}
 
 	public LoanPage lSubmit() {

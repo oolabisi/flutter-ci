@@ -17,7 +17,6 @@ import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -141,7 +140,7 @@ public class BaseTest {
 		ThreadContext.put("ROUTINGKEY", "ServerLogs");
 		server = getAppiumService(); // -> If using Mac, uncomment this statement and comment below statement
 //		server = getAppiumServerDefault(); // -> If using Windows, uncomment this statement and comment above statement
-		if(!checkIfAppiumServerIsRunnning(4723)) {
+		if(!checkIfAppiumServerIsRunning(4723)) {
 			server.start();
 			server.clearOutPutStreams(); // -> Comment this if you don't want to see server logs in the console
 			utils.log().info("Appium server started");
@@ -150,7 +149,7 @@ public class BaseTest {
 		}
 	}
 
-	public boolean checkIfAppiumServerIsRunnning(int port) throws Exception {
+	public boolean checkIfAppiumServerIsRunning(int port) throws Exception {
 		boolean isAppiumServerRunning = false;
 		ServerSocket socket;
 		try {
@@ -205,7 +204,7 @@ public class BaseTest {
 		URL url;
 		InputStream inputStream = null;
 		InputStream stringsis = null;
-		Properties props = new Properties();
+		Properties props;
 		AppiumDriver driver;
 
 		String strFile = "logs" + File.separator + platformName + "_" + deviceName;
@@ -268,7 +267,7 @@ public class BaseTest {
 					desiredCapabilities.setCapability("wdaLocalPort", wdaLocalPort);
 					desiredCapabilities.setCapability("webkitDebugProxyPort", webkitDebugProxyPort);
 					desiredCapabilities.setCapability("app", iOSAppUrl);
-//					desiredCapabilities.setCapability("launchTimeout", 12000);
+					desiredCapabilities.setCapability("launchTimeout", 12000);
 
 					driver = new IOSDriver(url, desiredCapabilities);
 					break;
@@ -280,7 +279,7 @@ public class BaseTest {
 			setDriver(driver);
 			utils.log().info("driver initialized: " + driver);
 		} catch (Exception e) {
-			utils.log().fatal("driver initialization failure. ABORT!!!\n" + e.toString());
+			utils.log().fatal("driver initialization failure. ABORT!!!\n" + e);
 			throw e;
 		} finally {
 			if(inputStream != null) {
@@ -300,11 +299,8 @@ public class BaseTest {
 
 	  public void tap(AppiumDriver driver) {
 		  WebElement element = driver.findElement(AppiumBy.accessibilityId("Enter email address"));
-//		findElement(AppiumBy.accessibilityId("Enter email address"));
 		  Map<String, Object> params = new HashMap<>();
 		  params.put("elementId", ((RemoteWebElement) element).getId());
-//		params.put("x",0);
-//		params.put("y", 0);
 		  driver.executeScript("mobile: tap", params);
 	  }
   
@@ -330,7 +326,7 @@ public class BaseTest {
   public void click(WebElement e, String msg) {
 		  waitForVisibility(e);
 		  utils.log().info(msg);
-//	  ExtentReport.getTest().log(Status.INFO, msg);
+	  ExtentReport.getTest().log(Status.INFO, msg);
 		  e.click();
   }
   
@@ -342,7 +338,7 @@ public class BaseTest {
   public void sendKeys(WebElement e, String txt, String msg) {
 		  waitForVisibility(e);
 		  utils.log().info(msg);
-//	  ExtentReport.getTest().log(Status.INFO, msg);
+	  ExtentReport.getTest().log(Status.INFO, msg);
 		  e.sendKeys(txt);
   }
   
@@ -409,7 +405,7 @@ public class BaseTest {
 	  public WebElement scrollToData() {
 		  return getDriver().findElement(AppiumBy.androidUIAutomator(
 				  "new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
-						  + "new UiSelector().description(\"7GB for Weekly - Weekly - ₦1,800.00\"));"));
+						  + "new UiSelector().description(\"3GB for 2Days - 2Days - ₦800.00\"));"));
 	  }
 
 	  public static void tapByCoordinates(int x, int y){

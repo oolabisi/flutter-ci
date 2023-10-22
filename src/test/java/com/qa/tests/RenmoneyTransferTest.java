@@ -38,6 +38,11 @@ public class RenmoneyTransferTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        transactionPage = loginPage.tSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+        //        loginUsers.getJSONObject("validUser").getString("validEmail") ,
+
     }
 
     @AfterClass
@@ -46,9 +51,6 @@ public class RenmoneyTransferTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        transactionPage = loginPage.tSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-        //        loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
     @AfterMethod
     public void afterMethod() {}

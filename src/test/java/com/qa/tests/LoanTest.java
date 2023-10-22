@@ -38,6 +38,11 @@ public class LoanTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        loanPage = loginPage.lSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+        //        loginUsers.getJSONObject("validUser").getString("validEmail") ,
+
     }
 
     @AfterClass
@@ -46,9 +51,6 @@ public class LoanTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        loanPage = loginPage.lSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-        //        loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
     @AfterMethod
     public void afterMethod() {}

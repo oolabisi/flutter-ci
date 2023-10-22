@@ -5,13 +5,20 @@
             <listener class-name="com.qa.listeners.TestListener" />
         </listeners>
         <parameter name="platformName" value="iOS" />
-        <parameter name="udid" value="F49FEE68-9D5F-4128-8285-C5762A0C8307" />
-        <parameter name="deviceName" value="iPhone14ProMax" />
+        <parameter name="udid" value="D95A9686-EB41-4235-8E2C-5A8AFC556117" />
+        <parameter name="deviceName" value="iPhone SE" />
         <parameter name="wdaLocalPort" value="10001" />
         <parameter name="webkitDebugProxyPort" value="11001" />
         <classes>
-            <class name="com.qa.tests.LoginTests"/>
-            <!--<class name="com.qa.tests.ProductTests"></class>-->
+            <!-- LOGIN MODULE -->
+            <class name="com.qa.tests.LoginTests">
+                <methods>
+                    <include name="validEmail"/>
+                    <include name="validPassword"/>
+                    <include name="modalPopUp"/>
+                    <include name="signOut"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite> <!-- Suite -->

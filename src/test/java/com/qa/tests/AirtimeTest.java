@@ -39,6 +39,9 @@ public class AirtimeTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        airtimeDataPage =loginPage.aSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
     }
 
     @AfterClass
@@ -47,50 +50,46 @@ public class AirtimeTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        airtimeDataPage =loginPage.aSignIn(loginUsers.getJSONObject("validUser").getString("validEmail") ,loginUsers.getJSONObject("validUser").getString("validPassword"));
-        // loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
     @AfterMethod
     public void afterMethod() {}
 
     @Test
     public void BuyAirtime() throws InterruptedException{
-        // airtimeDataPage.pop
+         airtimeDataPage.bigPop();
+         Thread.sleep(2000);
         airtimeDataPage.buyAirtimeTab();
     }
     @Test
-            public void airtimeTab() throws InterruptedException{
+    public void airtimeTab() throws InterruptedException{
         Thread.sleep(2000);
         airtimeDataPage.airtimeTab();
         Thread.sleep(2000);
         airtimeDataPage.airtimeProvideTab();
     }
     @Test
-            public void networkProvider() throws InterruptedException{
+    public void networkProvider() throws InterruptedException{
         Thread.sleep(2000);
         airtimeDataPage.airtimeNetwork();
     }
     @Test
-            public void phoneNumber() throws InterruptedException{
+    public void phoneNumber() throws InterruptedException{
         Thread.sleep(2000);
         airtimeDataPage.phoneNumberField(loginUsers.getJSONObject("airtimeData").getString("phoneNumber"));
     }
     @Test
-            public void amount() throws InterruptedException{
+    public void amount() throws InterruptedException{
         Thread.sleep(2000);
         airtimeDataPage.amountField(loginUsers.getJSONObject("airtimeData").getString("amount"));
     }
     @Test
-            public void otherAmountOptions() throws InterruptedException{
+    public void otherAmountOptions() throws InterruptedException{
         Thread.sleep(2000);
-        // hide keyboard
         airtimeDataPage.amountOne();
         Thread.sleep(2000);
         airtimeDataPage.amountTwo();
         Thread.sleep(2000);
         airtimeDataPage.amountThree();
-        // hide keyboard
 //    }
 //        Thread.sleep(2000);
 //        airtimeDataPage.next();

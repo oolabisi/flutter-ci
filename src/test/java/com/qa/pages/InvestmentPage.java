@@ -24,8 +24,14 @@ public class InvestmentPage extends BaseTest {
     @AndroidFindBy(accessibility = "RenVault")
     public WebElement renvault;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@index='2']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@index='3']")
     public WebElement planName;
+
+    @AndroidFindBy(accessibility = "December Turnup")
+    public WebElement suggestedName;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]/android.view.View")
+    public WebElement nexT;
 
     @AndroidFindBy(accessibility = "Amount")
     public WebElement hideKeyboard;
@@ -42,10 +48,16 @@ public class InvestmentPage extends BaseTest {
     @AndroidFindBy(accessibility = "Minimum: ₦100.00")
     public WebElement hideKeyboard3;
 
+    @AndroidFindBy(accessibility = "Start date")
+    public WebElement startDate;
+
+    @AndroidFindBy(accessibility = "OK")
+    public WebElement dateOk;
+
     @AndroidFindBy(accessibility = "Minimum: ₦1,000.00")
     public WebElement hideKeyboard4;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]/android.view.View")
     public WebElement next;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@index='7']")
@@ -57,7 +69,7 @@ public class InvestmentPage extends BaseTest {
     @AndroidFindBy(accessibility = "How long do you want to save for?")
     public WebElement investmentDuration;
 
-    @AndroidFindBy(accessibility = "1 month(s)  (12.0%)")
+    @AndroidFindBy(accessibility = "1 month")
     public WebElement chosenDuration;
 
     @AndroidFindBy(accessibility = "Confirm")
@@ -114,12 +126,12 @@ public class InvestmentPage extends BaseTest {
 
 
 public InvestmentPage newPlan() {
-    click(newPlan);
+    click(newPlan,"Start a plan");
     return new InvestmentPage();
 }
 
 public InvestmentPage smartGoal() {
-    click(smartGoal);
+    click(smartGoal,"Smart Goal option");
     return new InvestmentPage();
 }
 
@@ -129,30 +141,46 @@ public InvestmentPage popUP() {
 }
 
 public InvestmentPage renflex() {
-    click(renflex);
+    click(renflex,"Renflex option");
     return new InvestmentPage();
 }
 
 public InvestmentPage planName(String name) {
-    click(planName);
+    click(planName,"Give your plan a name");
     sendKeys(planName, name);
+    clear(planName);
     return this;
 }
 
+public InvestmentPage suggestedName() {
+    click(suggestedName, "suggestedName");
+    return new InvestmentPage();
+}
+
 public InvestmentPage renvault() {
-    click(renvault);
+    click(renvault,"Renvault option");
     return new InvestmentPage();
 }
 
 public InvestmentPage hideKeyboard() {
-    click(hideKeyboard);
+    click(hideKeyboard,"Hide keypad");
     return new InvestmentPage();
 }
 
 public InvestmentPage scrollR() {
-    click(scrollRenvault);
+    click(scrollRenvault,"Scroll down please");
     return new InvestmentPage();
 }
+
+    public InvestmentPage startDate() {
+        click(startDate,"Start date");
+        return new InvestmentPage();
+    }
+
+    public InvestmentPage dateOk() {
+        click(dateOk,"Confirm date");
+        return new InvestmentPage();
+    }
 
 public InvestmentPage scrollDown() {
     scrollToRenvault();
@@ -160,7 +188,7 @@ public InvestmentPage scrollDown() {
 }
 
 public InvestmentPage scrollS() {
-    click(scrollSmart);
+    click(scrollSmart,"Kindly scroll down");
     return new InvestmentPage();
 }
 
@@ -171,138 +199,143 @@ public InvestmentPage scrolLdown() {
 
 
     public InvestmentPage hideKeyboard2() {
-    click(hideKeyboard2);
+    click(hideKeyboard2,"Hide keypad");
     return new InvestmentPage();
 }
 
 public InvestmentPage hideKeyboard3() {
-    click(hideKeyboard3);
+    click(hideKeyboard3,"Hide keypad");
     return new InvestmentPage();
 }
 
+    public InvestmentPage nexT() {
+        click(nexT,"Next page please");
+        return new InvestmentPage();
+    }
+
 public InvestmentPage next() {
-    click(next);
+    click(next,"Next page please");
     return new InvestmentPage();
 }
 
 public InvestmentPage amount(String amount) {
-    click(this.amount);
+    click(this.amount,"Amount to save");
     sendKeys(this.amount, amount);
     return this;
 }
 
 public InvestmentPage investmentDurationR() {
-    click(investmentDurationR);
+    click(investmentDurationR,"Duration to save");
     return new InvestmentPage();
 }
 
 public InvestmentPage investmentDuration() {
-    click(investmentDuration);
+    click(investmentDuration,"Duration to save");
     return new InvestmentPage();
 }
 
 public InvestmentPage chosenDuration() {
-    click(chosenDuration);
+    click(chosenDuration,"Set duration");
     return new InvestmentPage();
 }
 
 public InvestmentPage confirmBtn() {
-    click(confirmBtn);
+    click(confirmBtn,"Confirm to agree");
     return new InvestmentPage();
 }
 
 public InvestmentPage checkBox() {
-    click(checkBox);
+    click(checkBox,"Checkbox ticked");
     return new InvestmentPage();
 }
 
 public InvestmentPage continueBtn() {
-    click(continueBtn);
+    click(continueBtn,"Continue to save");
     return new InvestmentPage();
 }
 
 public InvestmentPage backToInvestmentPage() {
-    click(backToInvestmentPage);
+    click(backToInvestmentPage,"Save landing!");
     return new InvestmentPage();
 }
 
 public InvestmentPage history() {
-    click(history);
+    click(history,"History to deeds");
    return new InvestmentPage();
 }
 
 public InvestmentPage withdrawal() {
-    click(withdrawal);
+    click(withdrawal,"Withdraw my money");
     return new InvestmentPage();
 }
 
 public InvestmentPage smartWithdrawal() {
-    click(smartWithdrawal);
+    click(smartWithdrawal,"Withdraw my money");
     return new InvestmentPage();
 }
 
 public InvestmentPage cancelBtn() {
-    click(cancelBtn);
+    click(cancelBtn,"Cancel cos I can");
     return new InvestmentPage();
 }
 
 public InvestmentPage smartTenure() {
-    click(smartTenure);
+    click(smartTenure,"Tenure options");
     return new InvestmentPage();
 }
 
 public InvestmentPage chosenTenure() {
-    click(chosenTenure);
+    click(chosenTenure,"Tenure I chose");
     return new InvestmentPage();
 }
 
 public InvestmentPage smartDuration() {
-    click(smartTenure);
+    click(smartTenure,"Duration option");
     return new InvestmentPage();
 }
 
 public InvestmentPage smartChose() {
-    click(smartChose);
+    click(smartChose,"Option I chose");
     return new InvestmentPage();
 }
 
 public InvestmentPage addRenFlex() {
-    click(addRenFlex);
+    click(addRenFlex,"Renflex anyone?");
     return new InvestmentPage();
 }
 
 public InvestmentPage renFlexAmount() {
-    click(renFlexAmount);
+    click(renFlexAmount,"Name your price!");
     return this;
 }
 
 public InvestmentPage renFlexNext() {
-    click(renFlexNext);
+    click(renFlexNext,"Next please");
     return new InvestmentPage();
 }
 
 public InvestmentPage withdrawRenFlex() {
-    click(withdrawRenFlex);
+    click(withdrawRenFlex,"Gimme ma moneeeeeey");
     return new InvestmentPage();
 }
 
 public InvestmentPage renFlexWithdrawAmount() {
-    click(renFlexWithdrawAmount);
+    click(renFlexWithdrawAmount,"All or nothing");
     return new InvestmentPage();
 }
 
 public InvestmentPage withdrawalContinue() {
-    click(withdrawalContinue);
+    click(withdrawalContinue,"Moving on");
     return new InvestmentPage();
 }
 
 public InvestmentPage saveIconBtn() {
-    click(saveIconBtn);
+    click(saveIconBtn,"Saving aboard");
     return new InvestmentPage();
 }
 
 public InvestmentPage hideKeyboard4() {
-    click(hideKeyboard4);
+    click(hideKeyboard4,"Hide keypad");
     return new InvestmentPage();
     }
 

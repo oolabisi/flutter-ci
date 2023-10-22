@@ -50,8 +50,7 @@ public class LoginTests extends BaseTest{
 	  }
 
 	  @AfterMethod
-	  public void afterMethod() {		  
-	  }
+	  public void afterMethod() {}
 	  
 //	  @Test
 	/*  public void invalidUserName() {
@@ -79,10 +78,6 @@ public class LoginTests extends BaseTest{
 		  Thread.sleep(3000);
 		  loginPage.escape();
 		  loginPage.nextBtn();
-		  loginPage.validatePassword(loginUsers.getJSONObject("validUser").getString("validPassword"));
-		  Thread.sleep(3000);
-		  loginPage.escape2();
-		  dashboardPage = loginPage.submit();
 		  Thread.sleep(7000);
 
 	}
@@ -100,4 +95,23 @@ public class LoginTests extends BaseTest{
 		Thread.sleep(3000);
 		loginPage.escape2();
 	}
+
+	@Test
+	public void login() throws InterruptedException {
+		dashboardPage = loginPage.submit();
+		Thread.sleep(7000);
+	}
+
+	@Test
+	public void modalPopUp() throws InterruptedException {
+		dashboardPage = loginPage.modalPopUp();
+		Thread.sleep(7000);
+	}
+
+	@Test
+	public void signOut() throws InterruptedException {
+		dashboardPage = loginPage.submit();
+		Thread.sleep(3000);
+	}
+
 }

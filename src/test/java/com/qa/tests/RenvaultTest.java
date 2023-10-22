@@ -40,6 +40,11 @@ public class RenvaultTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+//        loginUsers.getJSONObject("validUser").getString("validEmail"),
+
     }
 
     @AfterClass
@@ -49,9 +54,6 @@ public class RenvaultTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-//        loginUsers.getJSONObject("validUser").getString("validEmail"),
     }
 
     @AfterMethod
@@ -73,6 +75,15 @@ public class RenvaultTest extends BaseTest {
             Thread.sleep(2000);
             investmentPage.renvault();
         }
+
+    @Test
+    public void planName() throws InterruptedException {
+        Thread.sleep(2000);
+        investmentPage.planName(loginUsers.getJSONObject("investment").getString("vaultName"));
+        investmentPage.hideKeyboard2();
+        investmentPage.nexT();
+        Thread.sleep(2000);
+    }
         @Test
         public void renvaultAmount() throws InterruptedException {
             Thread.sleep(2000);
@@ -91,20 +102,15 @@ public class RenvaultTest extends BaseTest {
             investmentPage.scrollDown();
             investmentPage.scrollR();
             investmentPage.checkBox();
-            investmentPage.next();
+            investmentPage.confirmBtn();
         }
-        @Test
-        public void planName() throws InterruptedException {
+
+    @Test
+    public void confirmAndContinue() throws InterruptedException {
         Thread.sleep(2000);
-        investmentPage.planName(loginUsers.getJSONObject("investment").getString("vaultName"));
-        investmentPage.hideKeyboard2();
         investmentPage.confirmBtn();
         Thread.sleep(2000);
-//        investmentPage.continueBtn();
-//        Thread.sleep(4000);
-
-
-
+        investmentPage.continueBtn();
     }
 
 }

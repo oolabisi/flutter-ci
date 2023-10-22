@@ -62,7 +62,7 @@ public class AirtimeDataPage extends BaseTest {
     @AndroidFindBy(accessibility = "Select Data Options")
     public WebElement dataOption;
 
-    @AndroidFindBy(accessibility = "7GB for Weekly - Weekly - ₦1,800.00")
+    @AndroidFindBy(accessibility = "3GB for 2Days - 2Days - ₦800.00")
     public WebElement dataBundle;
 
     public AirtimeDataPage buyAirtimeTab() {
@@ -81,80 +81,85 @@ public class AirtimeDataPage extends BaseTest {
     }
 
     public AirtimeDataPage dataTab() {
-        click(dataTab);
+        click(dataTab, "Data is life");
         return new AirtimeDataPage();
     }
 
+    public AirtimeDataPage scrollDown() {
+        scrollToData();
+        return this;
+    }
+
     public AirtimeDataPage airtimeProvideTab() {
-        click(airtimeProvideTab);
+        click(airtimeProvideTab, "Airtime to survive");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage searchForAirtime() {
-        click(searchForAirtime);
+        click(searchForAirtime, "Airtime type");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage airtimeNetwork() {
-        click(airtimeNetwork);
+        click(airtimeNetwork, "Choose network");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage dataNetwork() {
-        click(dataNetwork);
+        click(dataNetwork, "Choose network");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage phoneNumberField(String phone) {
-        click(phoneNumberField);
+        click(phoneNumberField, "Phone number to credit");
         sendKeys(phoneNumberField, phone);
         return this;
     }
 
     public AirtimeDataPage amountField(String amount) {
-        click(amountField);
+        click(amountField, "Amount to credit");
         sendKeys(amountField, amount);
         return this;
     }
 
     public AirtimeDataPage amountOne() {
-        click(amountOne);
+        click(amountOne, "Suggested amount");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage amountTwo() {
-        click(amountTwo);
+        click(amountTwo, "Suggested amount");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage amountThree() {
-        click(amountThree);
+        click(amountThree, "Suggested amount");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage next() {
-        click(next);
+        click(next, "Suggested amount");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage transactionPin(String pin) {
-        click(transactionPin);
+        click(transactionPin, "transaction pin");
         sendKeys(transactionPin, pin);
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage returnToDashboard() {
-        click(returnToDashboard);
+        click(returnToDashboard, "Airtime/Data landing");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage dataOption() {
-        click(dataOption);
+        click(dataOption, "data option");
         return new AirtimeDataPage();
     }
 
     public AirtimeDataPage dataBundle() {
-        click(dataBundle);
+        click(dataBundle, "bundle type");
         return new AirtimeDataPage();
     }
 

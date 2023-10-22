@@ -38,6 +38,11 @@ public class SmartGoalTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+//        loginUsers.getJSONObject("validUser").getString("validEmail") ,
+
     }
 
     @AfterClass
@@ -47,9 +52,6 @@ public class SmartGoalTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-//        loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
 
     @AfterMethod
@@ -76,17 +78,24 @@ public class SmartGoalTest extends BaseTest {
     }
 
     @Test
+    public void suggestedName() throws InterruptedException{
+        Thread.sleep(2000);
+        investmentPage.suggestedName();
+        investmentPage.next();
+    }
+
+    @Test
     public void smartAmount() throws InterruptedException {
         Thread.sleep(2000);
         investmentPage.amount(loginUsers.getJSONObject("investment").getString("amount"));
     }
 
     @Test
-    public void duration() throws InterruptedException {
+    public void startDate() throws InterruptedException {
         Thread.sleep(2000);
-        investmentPage.investmentDuration();
-        Thread.sleep(2000);
-        investmentPage.chosenTenure();
+        investmentPage.startDate();
+        Thread.sleep(1400);
+        investmentPage.dateOk();
     }
 
     @Test
@@ -95,26 +104,29 @@ public class SmartGoalTest extends BaseTest {
         investmentPage.smartTenure();
         Thread.sleep(2000);
         investmentPage.smartChose();
-        investmentPage.hideKeyboard4();
-        investmentPage.scrolLdown();
     }
 
     @Test
-    public void checkBox() {
-        investmentPage.scrollS();
+    public void duration() throws InterruptedException {
+        Thread.sleep(2000);
+        investmentPage.investmentDuration();
+        Thread.sleep(2000);
+        investmentPage.chosenDuration();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void checkBoxAndConfirm() {
+        investmentPage.scrolLdown();
         investmentPage.checkBox();
-        investmentPage.next();
+        investmentPage.confirmBtn();
     }
 
     @Test
     public void planName() {
         investmentPage.planName(loginUsers.getJSONObject("investment").getString("smartName"));
         investmentPage.hideKeyboard2();
-        investmentPage.confirmBtn();
-//        Thread.sleep(2000);
-//        investmentPage.continueBtn();
-//        Thread.sleep(4000);
-
+        investmentPage.next();
     }
 
 

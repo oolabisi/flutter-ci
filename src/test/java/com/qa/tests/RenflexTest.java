@@ -40,6 +40,11 @@ public class RenflexTest extends BaseTest {
         }
         closeApp();
         launchApp();
+
+        loginPage = new LoginPage();
+        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
+//        loginUsers.getJSONObject("validUser").getString("validEmail") ,
+
     }
 
     @AfterClass
@@ -49,9 +54,6 @@ public class RenflexTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod(Method m) {
         utils.log().info("\n" + "****** starting test:" + m.getName() + "******" + "\n");
-        loginPage = new LoginPage();
-        investmentPage = loginPage.iSignIn(loginUsers.getJSONObject("validUser").getString("validPassword"));
-//        loginUsers.getJSONObject("validUser").getString("validEmail") ,
     }
 
     @AfterMethod
@@ -73,9 +75,11 @@ public class RenflexTest extends BaseTest {
     }
 
     @Test
-    public void flexAmount(){
+    public void flexAmount() throws InterruptedException{
+        Thread.sleep(3000);
         investmentPage.amount(loginUsers.getJSONObject("investment").getString("flex"));
         investmentPage.hideKeyboard3();
+        Thread.sleep(3000);
 //        investmentPage.renFlexNext();
 //        investmentPage.backToInvestmentPage();
     }
