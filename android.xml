@@ -23,7 +23,7 @@
 			</class>
 
 			<!-- DASHBOARD MODULE -->
-			<!--<class name="com.qa.tests.DashboardPageTestPage">
+			<class name="com.qa.tests.DashboardPageTestPage">
 				<methods>
 				<include name="modalPopUp"/>
 				<include name="historyTab"/>
@@ -32,10 +32,10 @@
 				<include name="addMoneyTab"/>
 				<include name="sendMoneyTab"/>
 				</methods>
-			</class>-->
+			</class>
 
 			<!-- RENVAULT MODULE -->
-			<!--<class name="com.qa.tests.RenvaultTest">
+			<class name="com.qa.tests.RenvaultTest">
 				<methods>
 					<include name="Renvault"/>
 					<include name="investmentOption"/>
@@ -46,10 +46,10 @@
 					<include name="checkBox"/>
 					<include name="confirmAndContinue"/>
 				</methods>
-			</class>-->
+			</class>
 
 			<!-- SMART-GOAL MODULE -->
-		<!--	<class name="com.qa.tests.SmartGoalTest">
+			<class name="com.qa.tests.SmartGoalTest">
 				<methods>
 					<include name="SmartGoal"/>
 					<include name="planOption"/>
@@ -62,19 +62,19 @@
 					<include name="duration"/>
 					<include name="checkBoxAndConfirm"/>
 				</methods>
-			</class>-->
+			</class>
 
 			<!-- RENFLEX MODULE -->
-			<!--<class name="com.qa.tests.RenflexTest">
+			<class name="com.qa.tests.RenflexTest">
 				<methods>
 					<include name="Renflex"/>
 					<include name="planOption"/>
 					<include name="flexAmount"/>
 				</methods>
-			</class>-->
+			</class>
 
 			<!-- AIRTIME MODULE -->
-			<!--<class name="com.qa.tests.AirtimeTest">
+			<class name="com.qa.tests.AirtimeTest">
 				<methods>
 					<include name="BuyAirtime"/>
 					<include name="airtimeTab"/>
@@ -83,7 +83,7 @@
 					<include name="amount"/>
 					<include name="otherAmountOptions"/>
 				</methods>
-			</class>-->
+			</class>
 
 			<!-- DATA MODULE -->
 			<class name="com.qa.tests.DataTest">
